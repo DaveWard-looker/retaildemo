@@ -1,29 +1,22 @@
-# Un-hide and use this explore, or copy the joins into another explore, to get all the fully nested relationships from this view
-explore: omni_channel_support_calls {
-  hidden: yes
-
-  join: omni_channel_support_calls__messages {
-    view_label: "Omni Channel Support Calls: Messages"
-    sql: LEFT JOIN UNNEST(${omni_channel_support_calls.messages}) as omni_channel_support_calls__messages ;;
-    relationship: one_to_many
-  }
-}
 
 view: omni_channel_support_calls {
   sql_table_name: `daveward-ps-dev.daveward_demodataset.omni_channel_support_calls`
     ;;
 
   dimension: agent_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.agent_id ;;
   }
 
   dimension: client_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.client_id ;;
   }
 
   dimension_group: conversation_end {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -38,11 +31,13 @@ view: omni_channel_support_calls {
   }
 
   dimension: conversation_id {
+    hidden: yes
     type: string
     sql: ${TABLE}.conversation_id ;;
   }
 
   dimension_group: conversation_start {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -54,6 +49,13 @@ view: omni_channel_support_calls {
       year
     ]
     sql: ${TABLE}.conversation_start_at ;;
+  }
+
+  dimension_group: conversation {
+    type: duration
+    intervals: [second,minute,hour]
+    sql_start: ${conversation_start_raw} ;;
+    sql_end: ${conversation_end_raw} ;;
   }
 
   dimension: messages {

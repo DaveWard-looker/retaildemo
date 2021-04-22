@@ -8,17 +8,16 @@ view: category_lookup {
   }
 
   dimension: category_code {
+    primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.category_code ;;
   }
 
   dimension: item_code {
+    hidden: yes
     type: number
     sql: ${TABLE}.item_code ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

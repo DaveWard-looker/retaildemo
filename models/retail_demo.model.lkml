@@ -10,4 +10,14 @@ datagroup: retail_demo_default_datagroup {
 
 persist_with: retail_demo_default_datagroup
 
-explore: products {}
+explore: omni_channel_support_calls__messages {}
+
+explore: omni_channel_support_calls {
+  # hidden: yes
+
+  join: omni_channel_support_calls__messages {
+    view_label: "Omni Channel Support Calls: Messages"
+    sql: LEFT JOIN UNNEST(${omni_channel_support_calls.messages}) as omni_channel_support_calls__messages ;;
+    relationship: one_to_many
+  }
+}

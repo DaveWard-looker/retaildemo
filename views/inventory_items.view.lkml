@@ -5,11 +5,13 @@ view: inventory_items {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }
 
   dimension: cost {
+    hidden: yes
     type: number
     sql: ${TABLE}.COST ;;
   }
@@ -44,11 +46,13 @@ view: inventory_items {
   }
 
   dimension: product_distribution_center_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.PRODUCT_DISTRIBUTION_CENTER_ID ;;
   }
 
   dimension: product_id {
+    hidden: yes
     type: number
     # hidden: yes
     sql: ${TABLE}.PRODUCT_ID ;;
@@ -60,6 +64,7 @@ view: inventory_items {
   }
 
   dimension: product_retail_price {
+    hidden: yes
     type: number
     sql: ${TABLE}.PRODUCT_RETAIL_PRICE ;;
   }
@@ -81,6 +86,18 @@ view: inventory_items {
       year
     ]
     sql: ${TABLE}.SOLD_AT ;;
+  }
+
+  measure: total_cost {
+    type: sum
+    sql: ${cost} ;;
+    value_format_name: usd
+  }
+
+  measure: total_product_retail_price {
+    type: sum
+    sql: ${product_retail_price} ;;
+    value_format_name: usd
   }
 
   measure: count {

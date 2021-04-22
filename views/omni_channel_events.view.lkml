@@ -5,6 +5,7 @@ view: omni_channel_events {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }
@@ -29,6 +30,7 @@ view: omni_channel_events {
   }
 
   dimension: customer_id {
+    hidden: yes
     type: number
     # hidden: yes
     sql: ${TABLE}.CUSTOMER_ID ;;

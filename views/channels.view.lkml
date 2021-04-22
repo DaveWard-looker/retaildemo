@@ -5,6 +5,7 @@ view: channels {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }
@@ -15,6 +16,7 @@ view: channels {
   }
 
   measure: count {
+    label: "Count of Channels"
     type: count
     drill_fields: [id, name, transaction_detail.count]
   }

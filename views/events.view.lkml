@@ -5,6 +5,7 @@ view: events {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }
@@ -100,6 +101,7 @@ view: events {
   }
 
   measure: count {
+    label: "Count of Events"
     type: count
     drill_fields: [id]
   }
