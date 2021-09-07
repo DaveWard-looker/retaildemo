@@ -34,7 +34,6 @@ explore: inventory_items {
   }
 }
 
-
-explore: inventory_items_by_year {
+explore: inventory_items_names {
   hidden: yes
 }

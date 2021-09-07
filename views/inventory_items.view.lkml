@@ -55,21 +55,21 @@ AND
   dimension: product_brand {
     type: string
     sql: ${TABLE}.PRODUCT_BRAND ;;
-    suggest_explore: inventory_items_by_year
+    suggest_explore: inventory_items_names
     suggest_dimension: product_brand
   }
 
   dimension: product_category {
     type: string
     sql: ${TABLE}.PRODUCT_CATEGORY ;;
-    suggest_explore: inventory_items_by_year
+    suggest_explore: inventory_items_names
     suggest_dimension: product_category
   }
 
   dimension: product_department {
     type: string
     sql: ${TABLE}.PRODUCT_DEPARTMENT ;;
-    suggest_explore: inventory_items_by_year
+    suggest_explore: inventory_items_names
     suggest_dimension: product_department
   }
 
@@ -89,7 +89,7 @@ AND
   dimension: product_name {
     type: string
     sql: ${TABLE}.PRODUCT_NAME ;;
-    suggest_explore: inventory_items_by_year
+    suggest_explore: inventory_items_names
     suggest_dimension: product_name
   }
 
