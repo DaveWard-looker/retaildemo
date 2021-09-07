@@ -25,6 +25,7 @@ view: inventory_items_by_month {
     }
 
     dimension: product_id {
+      primary_key: yes
       type: number
       sql: ${TABLE}.PRODUCT_ID ;;
     }

@@ -25,6 +25,7 @@ datagroup_trigger: inventory_items_data_group
   }
 
   dimension: product_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.PRODUCT_ID ;;
   }
