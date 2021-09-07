@@ -21,3 +21,6 @@ explore: omni_channel_support_calls {
     relationship: one_to_many
   }
 }
+
+
+explore: inventory_items {}
