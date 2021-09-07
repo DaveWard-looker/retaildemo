@@ -8,6 +8,10 @@ datagroup: retail_demo_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+datagroup: inventory_items_data_group {
+  sql_trigger: select count(*) from `daveward-ps-dev.daveward_demodataset.inventory_items` ;;
+}
+
 persist_with: retail_demo_default_datagroup
 
 explore: omni_channel_support_calls__messages {}

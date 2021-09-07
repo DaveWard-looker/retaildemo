@@ -1,6 +1,19 @@
 view: inventory_items {
-  sql_table_name: `daveward-ps-dev.daveward_demodataset.inventory_items`
+  # sql_table_name: `daveward-ps-dev.daveward_demodataset.inventory_items`   ;;
+
+ derived_table: {
+    sql:  SELECT * FROM
+ {% if created_week._in_query %}
+ ${inventory_items_by_week.SQL_TABLE_NAME}
+ {% elsif created_month._in_query %}
+ ${inventory_items_by_month.SQL_TABLE_NAME}
+ {% elsif created_year._in_query %}
+ ${inventory_items_by_year.SQL_TABLE_NAME}
+ {% else %}
+ `daveward-ps-dev.daveward_demodataset.inventory_items`
+ {% endif %}
     ;;
+    }
   drill_fields: [id]
 
   dimension: id {
