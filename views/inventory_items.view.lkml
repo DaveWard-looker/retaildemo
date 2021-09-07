@@ -10,8 +10,17 @@ view: inventory_items {
  {% elsif created_year._in_query %}
  ${inventory_items_by_year.SQL_TABLE_NAME} ii
  {% else %}
- `daveward-ps-dev.daveward_demodataset.inventory_items`
+ `daveward-ps-dev.daveward_demodataset.inventory_items` ii
  {% endif %}
+WHERE
+{% condition product_brand %} ii.product_brand {% endcondition %}
+AND
+{% condition product_category %} ii.PRODUCT_CATEGORY {% endcondition %}
+AND
+{% condition product_department %} ii.PRODUCT_DEPARTMENT {% endcondition %}
+AND
+{% condition product_name %} ii.PRODUCT_NAME {% endcondition %}
+
     ;;
     }
   drill_fields: [id]
