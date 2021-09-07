@@ -2,13 +2,13 @@ view: inventory_items {
   # sql_table_name: `daveward-ps-dev.daveward_demodataset.inventory_items`   ;;
 
  derived_table: {
-    sql:  SELECT * FROM
+    sql:  SELECT ii.* FROM
  {% if created_week._in_query %}
- ${inventory_items_by_week.SQL_TABLE_NAME}
+ ${inventory_items_by_week.SQL_TABLE_NAME} ii
  {% elsif created_month._in_query %}
- ${inventory_items_by_month.SQL_TABLE_NAME}
+ ${inventory_items_by_month.SQL_TABLE_NAME} ii
  {% elsif created_year._in_query %}
- ${inventory_items_by_year.SQL_TABLE_NAME}
+ ${inventory_items_by_year.SQL_TABLE_NAME} ii
  {% else %}
  `daveward-ps-dev.daveward_demodataset.inventory_items`
  {% endif %}
