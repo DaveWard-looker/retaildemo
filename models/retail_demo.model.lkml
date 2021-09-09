@@ -2,9 +2,12 @@ connection: "bigquery_personal_instance"
 
 # include all the views
 include: "/views/**/*.view"
+include: "/explore/products.explore"
+include: "/explore/explore_refinments.explore"
+
 
 datagroup: retail_demo_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+   sql_trigger: select count(*) from `daveward-ps-dev.daveward_demodataset.products`;;
   max_cache_age: "1 hour"
 }
 
@@ -14,7 +17,6 @@ datagroup: inventory_items_data_group {
 
 persist_with: retail_demo_default_datagroup
 
-explore: omni_channel_support_calls__messages {}
 
 explore: omni_channel_support_calls {
   # hidden: yes

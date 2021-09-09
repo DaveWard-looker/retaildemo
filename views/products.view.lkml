@@ -20,6 +20,7 @@ view: products {
   }
 
   dimension: cost {
+    hidden: yes
     type: number
     sql: ${TABLE}.COST ;;
   }
@@ -40,6 +41,7 @@ view: products {
   }
 
   dimension: retail_price {
+    hidden: yes
     type: number
     sql: ${TABLE}.RETAIL_PRICE ;;
   }
@@ -53,4 +55,37 @@ view: products {
     type: count
     drill_fields: [id, name, inventory_items.count]
   }
+
+  measure: total_cost {
+    type: sum
+    sql: ${cost} ;;
+    value_format_name: usd_0
+  }
+
+  measure: total_price {
+    type: sum
+    sql: ${retail_price} ;;
+    value_format_name: usd_0
+  }
+
+  measure: average_price {
+    type: average
+    sql: ${retail_price} ;;
+    value_format_name: usd_0
+  }
+
+  measure: total_profit {
+    type: sum
+    sql: ${retail_price}-${cost} ;;
+    value_format_name: usd_0
+  }
+
+  measure: margin {
+    type: number
+    sql: 1.00*${total_profit}/nullif(${total_cost}) ;;
+    value_format_name: percent_2
+  }
+
+
+
 }
