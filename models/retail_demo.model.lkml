@@ -29,10 +29,6 @@ explore: omni_channel_support_calls {
 
 
 explore: inventory_items {
-  join: distribution_centers {
-    sql_on: ${inventory_items.product_distribution_center_id} = ${distribution_centers.id} ;;
-    relationship: many_to_one
-  }
 }
 
 explore: inventory_items_names {
@@ -42,3 +38,5 @@ explore: inventory_items_names {
 explore: products {
   group_label: "Retail Demo"
 }
+
+explore: order_items {}
