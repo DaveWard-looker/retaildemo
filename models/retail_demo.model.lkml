@@ -2,7 +2,6 @@ connection: "bigquery_personal_instance"
 
 # include all the views
 include: "/views/**/*.view"
-include: "/explore/products.explore"
 include: "/explore/explore_refinments.explore"
 
 
@@ -38,4 +37,8 @@ explore: inventory_items {
 
 explore: inventory_items_names {
   hidden: yes
+}
+
+explore: products {
+  group_label: "Retail Demo"
 }
