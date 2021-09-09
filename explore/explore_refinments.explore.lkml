@@ -2,11 +2,6 @@ include: "/models/retail_demo.model"
 
 
 
-explore: +inventory_items {
-  sql_always_where: ${product_brand} = 'Ray Ban' ;;
-}
-
-
 
 # Place in `retail_demo` model
 explore: +omni_channel_support_calls {
