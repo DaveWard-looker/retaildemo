@@ -36,7 +36,15 @@ explore: inventory_items_names {
 }
 
 explore: products {
+  query: top_ten_brands {
+    dimensions: [products.brand]
+    measures: [products.total_cost]
+  }
   group_label: "Retail Demo"
 }
 
 explore: order_items {}
+
+explore: inventory_items_by_year {
+  hidden: yes
+}

@@ -30,4 +30,9 @@ explore: +products {
       datagroup_trigger: retail_demo_default_datagroup
     }
   }
+  query: top_ten_brands {
+    dimensions: [products.brand]
+    measures: [products.total_cost]
+  }
+
 }

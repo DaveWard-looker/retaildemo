@@ -27,7 +27,7 @@ AND
 
   dimension: id {
     primary_key: yes
-    hidden: yes
+    hidden: no
     type: number
     sql: ${TABLE}.ID ;;
   }
@@ -55,8 +55,7 @@ AND
   dimension: product_brand {
     type: string
     sql: ${TABLE}.PRODUCT_BRAND ;;
-    suggest_explore: inventory_items_names
-    suggest_dimension: product_brand
+
   }
 
   dimension: product_category {
